@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="layout/main">
+<body>
+<div layout:fragment="content">
+    <div id="profile-content">
+        <div id="profile-content-photo">
+            <img th:src="@{${student.pictureUrl}}" id="profile-content-photo-img">
+        </div>
+        <div id="profile-content-info">
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Status:</span>
+                <span>Studying</span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Surname:</span>
+                <span th:text="${student.surname}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Name:</span>
+                <span th:text="${student.name}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Birthdate:</span>
+                <span th:text="${student.birthday}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Gender:</span>
+                <span th:text="${student.gender ? 'Male' : 'Female'}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Course:</span>
+                <span th:text="${student.yearOfStudy}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">City:</span>
+                <span th:text="${student.city.name}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Faculty:</span>
+                <span th:text="${student.faculty.name}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Speciality:</span>
+                <span th:text="${student.speciality.name}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Group:</span>
+                <span th:text="${student.group.name}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Curator:</span>
+                <span th:text="${student.group.curator.name} + ' ' + ${student.group.curator.surname}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Disciplines (groups):</span>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Groups:</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="course : ${student.courses}">
+                                        <td th:text="${course.name}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

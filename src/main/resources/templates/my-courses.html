@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="layout/main">
+<body>
+<div layout:fragment="content">
+    <div id="group-content">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Teacher</th>
+                <th scope="col">Mark</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="course : ${courses}">
+                <td th:text="${course.name}"></td>
+                <td th:text="${course.teacher.surname} + ' ' + ${course.teacher.name}"></td>
+                <td>
+                    <span th:each="mark : ${marks}" th:if="${mark.course.id==course.id}" th:text="${mark.mark}">
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="layout/main">
+<body>
+<div layout:fragment="content">
+    <div id="table-container">
+        <div>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col" style="width: 10%">Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="course : ${courses}">
+                    <td th:text="${course.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="marks-table">
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <td th:each="day : ${days}" th:text="${day.date}" style="font-size: 13px; padding: 11px 0 10px 0"></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="course : ${courses}">
+                    <td th:each="day : ${days}"><span th:each="mark : ${marks}" th:if="${day.id} == ${mark.day.id}"><span class="marks-table-score" th:if="${course.id} == ${mark.course.id}" th:text="${mark.mark}"></span></span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

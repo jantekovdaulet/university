@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="layout/main">
+<body>
+<div layout:fragment="content">
+    <div id="index-content">
+        <div class="index-content-line">
+            <a th:href="@{'/profile/' + ${student.id}}">
+                <button class="index-content-block">
+                    <img class="index-content-block-img"
+                         src="https://stud.satbayev.university/images/icons/new-icons/student-status3.png">
+                    <br>
+                    <span>My Profile</span>
+                </button>
+            </a>
+            <a th:href="@{'/my-curator/' + ${student.group.curator.id}}">
+                <button class="index-content-block">
+                    <img class="index-content-block-img"
+                         src="https://stud.satbayev.university/images/icons/new-icons/student-advisor3.png">
+                    <br>
+                    <span>My Curator</span>
+                </button>
+            </a>
+            <a th:href="@{'/group/' + ${student.group.id}}">
+                <button class="index-content-block">
+                    <img class="index-content-block-img"
+                         src="https://stud.satbayev.university/images/icons/new-icons/bachelor-student-data3.png">
+                    <br>
+                    <span>My Group</span>
+                </button>
+            </a>
+        </div>
+        <div class="index-content-line">
+            <a th:href="@{'/my-courses/' + ${student.id}}">
+                <button class="index-content-block">
+                    <img class="index-content-block-img"
+                         src="https://stud.satbayev.university/images/icons/new-icons/schedule-read-only-student3.png">
+                    <br>
+                    <span>My Courses</span>
+                </button>
+            </a>
+            <a th:href="@{'/my-subjects/' + ${student.id}}">
+                <button class="index-content-block">
+                    <img class="index-content-block-img"
+                         src="https://stud.satbayev.university/images/icons/new-icons/iup-student3.png">
+                    <br>
+                    <span>My Subjects</span>
+                </button>
+            </a>
+            <a th:href="@{'/my-marks/' + ${student.group.id}}">
+                <button class="index-content-block">
+                    <img class="index-content-block-img"
+                         src="https://stud.satbayev.university/images/icons/new-icons/journal-student3.png">
+                    <br>
+                    <span>My marks</span>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

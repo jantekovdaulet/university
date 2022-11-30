@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma, serif;
+}
+
+/*div{*/
+/*    border: blue 1px solid;*/
+/*}*/
+#profile-content {
+    display: flex;
+    margin: 20px 250px 0 250px;
+    border: gray 1px solid;
+    border-radius: 7px;
+}
+
+#profile-content-photo {
+    width: 45%;
+    border-right: darkgrey 1px solid;
+}
+
+#profile-content-photo-img {
+    height: 400px;
+    width: 300px;
+    margin: 20px;
+}
+
+#profile-content-info {
+    padding: 20px;
+}
+
+.profile-content-info-item {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.profile-content-info-item-title {
+    height: 19px;
+    width: 120px;
+}
+
+#group-content {
+    margin: 0 250px 0 250px;
+}
+
+#index-content {
+    margin: 0 260px 0 260px;
+}
+
+.index-content-line {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.index-content-block {
+    width: 215px;
+    height: 135px;
+    background: whitesmoke;
+    border-radius: 5px;
+    border: gray 1px solid;
+}
+
+.index-content-block-img {
+    width: 35px;
+    height: 35px;
+}
+
+#marks-table {
+    overflow: auto;
+    position: relative;
+}
+
+#marks-table table {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+#table-container {
+    display: flex;
+}
+
+.marks-table-score {
+    display: flex;
+    justify-content: center
+}

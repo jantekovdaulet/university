@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="layout/main">
+<body>
+<div layout:fragment="content">
+    <div id="profile-content">
+        <div id="profile-content-photo">
+            <img th:src="@{${curator.pictureUrl}}" id="profile-content-photo-img">
+        </div>
+        <div id="profile-content-info">
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Surname:</span>
+                <span th:text="${curator.surname}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Name:</span>
+                <span th:text="${curator.name}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Birthdate:</span>
+                <span th:text="${curator.birthday}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Gender:</span>
+                <span th:text="${curator.gender ? 'Male' : 'Female'}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Work Since:</span>
+                <span th:text="${curator.workSince}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Faculty:</span>
+                <span th:text="${curator.faculty.name}"></span>
+            </div>
+            <div class="profile-content-info-item">
+                <span class="profile-content-info-item-title">Groups:</span>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal1">View
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel1">Groups:</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Details</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="group : ${groups}">
+                                        <td th:text="${group.name}"></td>
+                                        <td>
+                                            <a th:href="@{'/group/' + ${group.id}}" type="button"
+                                               class="btn btn-primary btn-sm">View
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
