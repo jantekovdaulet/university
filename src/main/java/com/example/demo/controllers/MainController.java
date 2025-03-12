@@ -31,7 +31,7 @@ public class MainController {
     private MarkService markService;
 
     @Autowired
-    private SubjectService subjectService;
+    public SubjectService subjectService;
 
     @Autowired
     public DayService dayService;
