@@ -34,7 +34,7 @@ public class MainController {
     private SubjectService subjectService;
 
     @Autowired
-    private DayService dayService;
+    public DayService dayService;
 
     @GetMapping(value = "/profile/{id}")
     public String getProfile(Model model,
